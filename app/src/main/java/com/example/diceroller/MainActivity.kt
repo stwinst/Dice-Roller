@@ -10,6 +10,9 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var diceImage1: ImageView
+    lateinit var diceImage2: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,13 +21,15 @@ class MainActivity : AppCompatActivity() {
         rollButton.setOnClickListener {
             rollDice()
         }
+
+        diceImage1 = findViewById(R.id.dice_image1)
+        diceImage2 = findViewById(R.id.dice_image2)
     }
 
     private fun rollDice() {
         val randomIntDice1 = Random().nextInt(6) + 1
         val randomIntDice2 = Random().nextInt(6) + 1
-        val diceImage1: ImageView = findViewById(R.id.dice_image1)
-        val diceImage2: ImageView = findViewById(R.id.dice_image2)
+
         val drawableResourceDice1 = when (randomIntDice1) {
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
